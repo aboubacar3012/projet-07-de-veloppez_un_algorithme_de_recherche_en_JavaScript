@@ -1,12 +1,28 @@
+/**
+ * Crée une carte de recette.
+ * @param {Object} datas - Les données de la recette.
+ * @param {number} datas.id - L'identifiant de la recette.
+ * @param {string} datas.name - Le nom de la recette.
+ * @param {string} datas.photo - Le chemin de la photo de la recette.
+ * @param {number} datas.servings - Le nombre de portions de la recette.
+ * @param {Array} datas.ingredients - Les ingrédients de la recette.
+ * @param {number} datas.time - Le temps de préparation de la recette.
+ * @param {string} datas.description - La description de la recette.
+ * @param {string} datas.appliance - L'appareil utilisé pour la recette.
+ * @param {Array} datas.ustensils - Les ustensiles utilisés pour la recette.
+ * @returns {Object} - Un objet contenant les données de la recette et la fonction pour obtenir le DOM de la carte de recette.
+ */
 function recetteCardFactory(datas) {
    const { id, name, photo, servings, ingredients, time, description, appliance, ustensils } = datas;
-
-   //    console.log(ingredients);
 
    const picture = `./assets/img/${photo}`;
 
    // FACTORY DES CARTES RECETTES
 
+   /**
+    * Crée et retourne le DOM de la carte de recette.
+    * @returns {HTMLElement} - L'élément DOM de la carte de recette.
+    */
    function getRecetteCardDOM() {
       // Création col
       const col = document.createElement("div");
@@ -19,7 +35,6 @@ function recetteCardFactory(datas) {
       // Création img
       const image = document.createElement("img");
       image.className = "card-img-top";
-      // image.setAttribute("src", "https://source.unsplash.com/random/300x150?recette");
       image.setAttribute("src", picture);
       image.setAttribute("alt", name);
       image.setAttribute("style", "height: 250px;object-fit: cover;");
@@ -127,6 +142,6 @@ function recetteCardFactory(datas) {
 
       return col;
    }
-   // return { name,  id, city, country, tagline, price, picture, getUserCardDOM }
+
    return { id, name, photo, servings, ingredients, time, description, appliance, ustensils, getRecetteCardDOM };
 }

@@ -1,4 +1,7 @@
-// Fonction de création des recettes
+/**
+ * Fonction de création des recettes
+ * @param {Array} recipes - Tableau des recettes
+ */
 async function displayData(recipes) {
    const cardColsSection = document.querySelector(".cardsCols");
 
@@ -23,7 +26,10 @@ async function displayData(recipes) {
    });
 }
 
-// Fonction de création du bouton ingrédient
+/**
+ * Fonction de création du bouton ingrédient
+ * @param {Array} recipes - Tableau des recettes
+ */
 async function displayButtonIngredient(recipes) {
    // Je modifie le tableau d'objets ingrédients afin de supprimer les doublons
    const arrayIngredients = recipes.map((recipe) => recipe.ingredients).flat(); // Je concatène les objets
@@ -40,7 +46,10 @@ async function displayButtonIngredient(recipes) {
    });
 }
 
-// Fonction de création du bouton appareil
+/**
+ * Fonction de création du bouton appareil
+ * @param {Array} recipes - Tableau des recettes
+ */
 async function displayButtonAppliance(recipes) {
    // Je modifie le tableau d'objets appareil afin de supprimer les doublons
    const arrayOfArraysAppliances = recipes.map((recipe) => recipe.appliance.toLowerCase()); // Je crée un nouveau tableau avec les appareils et je mets tout en miniscules : Array(50) [ "Blender", "Saladier", "Cocotte", "Cuiseur de riz", "Four", "Four", "Four", "Four", "Saladier", "Four", … ]
@@ -56,7 +65,10 @@ async function displayButtonAppliance(recipes) {
    });
 }
 
-// Fonction de création du bouton ustensile
+/**
+ * Fonction de création du bouton ustensile
+ * @param {Array} recipes - Tableau des recettes
+ */
 async function displayButtonUstensil(recipes) {
    // Je modifie le tableau d'objets ustensils afin de supprimer les doublons
    const arrayOfArraysUstensils = recipes.map((recipe) => recipe.ustensils); // Je crée un nouveau tableau avec les ustensils : Array(50) [ (3) […], (1) […], (1) […], (2) […], (3) […], (3) […], (2) […], (2) […], (2) […], (3) […], … ]
@@ -80,6 +92,10 @@ async function displayButtonUstensil(recipes) {
       wrapperListUstensil.appendChild(ustensilWrapperCardDOM);
    });
 }
+
+/**
+ * Fonction d'initialisation
+ */
 async function init() {
    // Récupère les datas des recettes
    displayData(recipes);
